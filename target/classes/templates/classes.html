@@ -28,7 +28,10 @@
                     <a class="nav-link" href="/students">Alunni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/newstudent">NewStudent</a>
+                    <a class="nav-link" href="/newstudent">New Student</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/newclass">New Class</a>
                 </li>
                 </ul>
             </div>
@@ -46,7 +49,9 @@
             </thead>
             <tbody>
                 <tr th:each="schoolClass : ${schoolClasses}">
-                    <td th:text="${schoolClass.name}"></td>
+                    <td>
+                        <a th:text="${schoolClass.name}" th:href="@{/students/{classname}(classname=${schoolClass.name})}"></a>
+                    </td>
                     <td th:text="${schoolClass.getNumber()}"></td>
                 </tr>
             </tbody>

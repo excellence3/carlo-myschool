@@ -28,7 +28,10 @@
                     <a class="nav-link active" href="/students">Alunni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/newstudent">NewStudent</a>
+                    <a class="nav-link" href="/newstudent">New Student</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/newclass">New Class</a>
                 </li>
                 </ul>
             </div>
@@ -36,7 +39,7 @@
     </nav>
 
     <div class="container">
-        <h1>Alunni dell'istituto</h1>
+        <h1 th:text="${title}">Students list</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -51,7 +54,9 @@
                     <td th:text="${student.name}"></td>
                     <td th:text="${student.surname}"></td>
                     <td th:text="${student.age}"></td>
-                    <td th:text="${student.schoolClass.name}"></td>
+                    <td>
+                        <a th:text="${student.schoolClass.name}" th:href="@{/students/{classname}(classname=${student.schoolClass.name})}"></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
